@@ -18,10 +18,24 @@ listings.post('/', (req, res) => {
     Listing.push(req.body)
     res.redirect('/listings')
 })
-  
+
 // NEW
 listings.get('/new', (req, res) => {
     res.render('new')
+})
+
+// UPDATE
+listings.put('/:arrayIndex', (req, res) => {
+    Listing[req.params.arrayIndex] = req.body
+    res.redirect(`/listings/${req.params.arrayIndex}`)
+  })  
+
+// EDIT
+listings.get('/:indexArray/edit', (req, res) => {
+    res.render('edit', {
+      listing: Listing[req.params.indexArray],
+      index: req.params.indexArray
+    })
 })
 
 // DELETE
