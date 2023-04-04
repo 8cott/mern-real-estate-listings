@@ -4,7 +4,12 @@ const Listing = require('../models/listing.js')
 
 // INDEX
 listings.get('/', (req, res) => {
-    res.send(Listing)
+    res.render('Index',
+        {
+            listings: Listing,
+            title: 'Index Page'
+        }
+    )     
 })
 
 // SHOW

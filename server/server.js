@@ -1,10 +1,25 @@
 // DEPENDENCIES
 const express = require('express')
+// const cors = require('cors')
+// const bodyParser = require('body-parser')
+// const mongoose = require('mongoose')
 
 // CONFIGURATION
 require('dotenv').config({ path: '../.env' })
 const PORT = process.env.PORT
 const app = express()
+
+// MONGOOSE CONNECTION
+// mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true})
+
+// app.use(cors())
+// app.use(bodyParser.json())
+
+// MIDDLEWARE
+app.set('views', __dirname + '/views')
+app.set('view engine', 'jsx')
+app.engine('jsx', require('express-react-views').createEngine())
+
 
 // ROUTES
 app.get('/', (req, res) => {
