@@ -14,7 +14,13 @@ listings.get('/', (req, res) => {
 
 // SHOW
 listings.get('/:arrayIndex', (req, res) => {
-    res.send(Listing[req.params.arrayIndex])
+    if (Listing[req.params.arrayIndex]) {
+        res.render('Show', {
+            listing: Listing[req.params.arrayIndex]
+    })
+  } else {
+        res.send('Error 404')
+  }
 })
 
 module.exports = listings
