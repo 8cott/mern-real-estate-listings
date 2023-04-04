@@ -24,11 +24,18 @@ listings.get('/new', (req, res) => {
     res.render('new')
 })
 
+// DELETE
+listings.delete('/:indexArray', (req, res) => {
+    Listing.splice(req.params.indexArray, 1)
+    res.status(303).redirect('/listings')
+  })  
+
 // SHOW
 listings.get('/:arrayIndex', (req, res) => {
     if (Listing[req.params.arrayIndex]) {
         res.render('Show', {
-            listing: Listing[req.params.arrayIndex]
+            listing: Listing[req.params.arrayIndex],
+            index: req.params.arrayIndex,
     })
   } else {
         res.send('Error 404')
