@@ -12,6 +12,18 @@ listings.get('/', (req, res) => {
     )     
 })
 
+// CREATE
+listings.post('/', (req, res) => {
+    console.log(req.body)
+    Listing.push(req.body)
+    res.redirect('/listings')
+})
+  
+// NEW
+listings.get('/new', (req, res) => {
+    res.render('new')
+})
+
 // SHOW
 listings.get('/:arrayIndex', (req, res) => {
     if (Listing[req.params.arrayIndex]) {

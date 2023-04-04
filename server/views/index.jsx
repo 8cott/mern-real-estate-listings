@@ -3,7 +3,7 @@ const Default = require('./layouts/default')
 
 function Index ({ listings }) {
     return (
-      <Default title={title}>
+      <Default>
         <h2>Index Page</h2>
         {/* <p>I have {listings[0].address} Listed!</p> */}
         <ul>
@@ -17,6 +17,9 @@ function Index ({ listings }) {
               })  
             }
         </ul>
+        <div className="newButton">
+          <a href="/listings/new"><button>Add a new listing</button></a>
+        </div>
       </Default>
     )
 }
