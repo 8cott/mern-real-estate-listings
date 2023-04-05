@@ -20,11 +20,11 @@ function Show ({ listing, index }) {
         <h3>{listing.price}</h3>
         <h3>{listing.square_feet}</h3>
         <h3>{listing.price_per_sq_ft}</h3>
-        <img src={listing.image} alt={listing.address} />
-        <form action={`/listings/${index}?_method=DELETE`} method="POST">
+        <img src={listing.image_url} alt={listing.address} />
+        <form action={`/listings/${listing.id}?_method=DELETE`} method="POST">
           <input type='submit' value="DELETE"/>
         </form>
-        <a href={`/listings/${index}/edit`}><button>Edit</button></a>
+        <a href={`/listings/${listing.id}/edit`}><button>Edit</button></a>
       </Default>
     )
 }

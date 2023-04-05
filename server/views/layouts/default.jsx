@@ -12,7 +12,6 @@ function Default(html) {
         <header>
             <h1><a href='/listings'>Listings</a></h1>
         </header>
-      <h1>HTML Rendered!</h1>
       <div className="container">
         {html.children}
       </div>

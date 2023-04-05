@@ -5,7 +5,7 @@ function Edit ({ listing, index }) {
     return (
       <Default>
         <h2>Edit a listing</h2>
-        <form action={`/listings/${index}?_method=PUT`} method="POST">
+        <form action={`/listings/${listing.id}?_method=PUT`} method="POST">
           <label htmlFor='address'>address</label>
           <input
             type='text'
@@ -126,8 +126,8 @@ function Edit ({ listing, index }) {
           <br />
           <input type='submit'/>
         </form>
-        <div className="backButton">
-          <a href="/listings"><button>Go back to the index</button></a>
+        <div className='backButton'>
+          <a href='/listings'><button>Go back to the index</button></a>
         </div>
       </Default>
     )

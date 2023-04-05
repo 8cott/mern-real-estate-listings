@@ -10,7 +10,7 @@ function Index ({ listings }) {
             {
               listings.map((listing, index) => {
                 return (<li key={index}>
-                    <a href={`/listings/${index}`}>
+                    <a href={`/listings/${listing.id}`}>
                     {listing.address}
                     </a>
                 </li>)

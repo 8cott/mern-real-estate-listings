@@ -1,21 +1,25 @@
 const express = require('express')
 const listings = express.Router()
 const Listing = require('../models/listing.js')
+const listingSeedData = require('../models/seed.js')
 
 // INDEX
 listings.get('/', (req, res) => {
-    res.render('Index',
-        {
-            listings: Listing,
-            title: 'Index Page'
-        }
-    )     
+    Listing.find()
+        .then(foundListings => {
+            res.render('Index', {
+                listings: foundListings,
+                title: 'Index Page'
+            })
+        })
 })
 
 // CREATE
 listings.post('/', (req, res) => {
-    console.log(req.body)
-    Listing.push(req.body)
+    if(!req.body.image_url) {
+        req.body.image_url = undefined
+    }
+    Listing.create(req.body)
     res.redirect('/listings')
 })
 
@@ -25,35 +29,54 @@ listings.get('/new', (req, res) => {
 })
 
 // UPDATE
-listings.put('/:arrayIndex', (req, res) => {
-    Listing[req.params.arrayIndex] = req.body
-    res.redirect(`/listings/${req.params.arrayIndex}`)
-  })  
+listings.put('/:id', (req, res) => {
+    Listing.findByIdAndUpdate(req.params.id, req.body, { new: true }) 
+      .then(updatedListing => {
+        console.log(updatedListing) 
+        res.redirect(`/listings/${req.params.id}`) 
+      })
+  })
+  
 
 // EDIT
-listings.get('/:indexArray/edit', (req, res) => {
-    res.render('edit', {
-      listing: Listing[req.params.indexArray],
-      index: req.params.indexArray
-    })
-})
+listings.get('/:id/edit', (req, res) => {
+    Listing.findById(req.params.id) 
+      .then(foundListing => { 
+        res.render('edit', {
+          listing: foundListing
+        })
+      })
+  })
+  
 
 // DELETE
-listings.delete('/:indexArray', (req, res) => {
-    Listing.splice(req.params.indexArray, 1)
-    res.status(303).redirect('/listings')
-  })  
+listings.delete('/:id', (req, res) => {
+    Listing.findByIdAndDelete(req.params.id) 
+      .then(deletedListing => { 
+        res.status(303).redirect('/listings')
+      })
+  })
+  
 
 // SHOW
-listings.get('/:arrayIndex', (req, res) => {
-    if (Listing[req.params.arrayIndex]) {
-        res.render('Show', {
-            listing: Listing[req.params.arrayIndex],
-            index: req.params.arrayIndex,
-    })
-  } else {
-        res.send('Error 404')
-  }
+listings.get('/:id', (req, res) => {
+    Listing.findById(req.params.id)
+        .then(foundListing => {
+            res.render('show', {
+                listing: foundListing
+            })
+        })
+        .catch(err => {
+            res.send('404')
+        })
 })
+
+// SEED ROUTE 
+listings.get('/data/seed', (req, res) => {
+    Listing.insertMany(listingSeedData)
+      .then(createdListings => {
+        res.redirect('/listings')
+      })
+  })  
 
 module.exports = listings
