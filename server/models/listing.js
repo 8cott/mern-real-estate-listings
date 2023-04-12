@@ -16,9 +16,10 @@ const listingSchema = new Schema ({
     property_type: { type: String },
     bedrooms: { type: Number },
     bathrooms: { type: Number },
-    price: { type: Number },
+    price: { type: String },
     square_feet: { type: Number },
-    price_per_sq_ft: { type: Number },
+    price_per_sq_ft: { type: String },
+    description: { type: String },
     image_url: { type: String, default: 'https://www.compass.com/m/0/940c8f21-f17a-486b-89da-f581aab5376e/640x480.jpg' }
 })
 

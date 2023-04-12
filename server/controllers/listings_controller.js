@@ -36,18 +36,16 @@ listings.put('/:id', (req, res) => {
         res.redirect(`/listings/${req.params.id}`) 
       })
   })
-  
 
 // EDIT
 listings.get('/:id/edit', (req, res) => {
-    Listing.findById(req.params.id) 
-      .then(foundListing => { 
-        res.render('edit', {
-          listing: foundListing
-        })
+  Listing.findById(req.params.id) 
+    .then(foundListing => { 
+      res.render('edit', {
+        listing: foundListing
       })
-  })
-  
+    })
+})
 
 // DELETE
 listings.delete('/:id', (req, res) => {
@@ -56,19 +54,18 @@ listings.delete('/:id', (req, res) => {
         res.status(303).redirect('/listings')
       })
   })
-  
 
 // SHOW
 listings.get('/:id', (req, res) => {
-    Listing.findById(req.params.id)
-        .then(foundListing => {
-            res.render('show', {
-                listing: foundListing
-            })
-        })
-        .catch(err => {
-            res.send('404')
-        })
+  Listing.findById(req.params.id)
+      .then(foundListing => {
+          res.render('show', {
+              listing: foundListing
+          })
+      })
+      .catch(err => {
+          res.send('404')
+      })
 })
 
 // SEED ROUTE 

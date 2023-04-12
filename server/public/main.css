@@ -1,0 +1,307 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+
+body {
+    background-color: black;
+    color: white;
+    padding-top: 4rem;
+    padding-left: 8rem;
+    padding-right: 8rem;
+    padding-bottom: 4rem;
+  }
+
+/* NEW ------------------------------------------ */
+
+li{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+
+header{
+  position: relative;
+  padding: 0 2rem 2rem 0;
+  background-color: black;
+  border-bottom: 1px solid aqua;
+  margin-bottom: 0.5rem;
+}
+
+.navbar{
+  display: flex;
+  width: 100%;
+  height: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar .logo a{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.srlogo {
+   height: 8rem;
+   width: 100%;
+   padding-bottom: 4rem;
+}
+
+.navbar .links{
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar .toggle_btn{
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  font-size: 1.5rem;
+}
+
+.action_btn{
+  border-color: white;
+  color: white;
+  font-size: 1.5rem;
+  
+  margin-bottom: 4rem;
+}
+
+.title {
+  color: aqua;
+  font-size: 3rem;
+}
+
+.action_btn:hover{
+  border-color: aqua;
+  color: aqua;
+}
+.action_btn:active{
+  scale: 0.95;
+}
+
+.dropdown_menu{
+  display: none;
+  right: 2rem;
+  position: absolute;
+  background: grey;
+  backdrop-filter: blur(15px);
+  top: 60px;
+  height: 0px;
+  width: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown_menu li{
+  padding: 0.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dropdown_menu.open{
+  height: 240px
+}
+
+.dropdown_menu .action_btn{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+
+
+/* END ---------------------------------------------------------- */
+ 
+  img {
+    width: 50%;
+    display: block;
+    margin: auto;
+  }
+  
+  a:link {
+    text-decoration: none;
+  }
+
+  a:hover {
+      color: aqua;
+      border: none;
+  }
+
+  button {
+    border-color: white;
+    color: white;
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+
+  button:hover {
+    border-color: aqua;
+    color: aqua;
+  }
+  
+  form {
+    text-align: center;
+  }
+
+  .form-button {
+    border-color: black;
+    color: black;
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+
+  .form-button:hover {
+    color: aqua;
+    background-color: black;
+  }
+
+  input[type=submit] {
+    border-color: white;
+    color: white;
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+
+  input[type=submit]:hover {
+    border-color: aqua;
+    color: aqua;
+  }
+
+  input[type=submit].input-btn {
+    border-color: black;
+    color: black;
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+
+  input[type=submit].input-btn:hover {
+    color: aqua;
+    background-color: black;
+  }
+
+  input[type=submit].submitButton {
+    margin: 3rem;
+  }
+
+  .backButton {
+
+    margin: auto;
+     
+  }
+
+  h3 {
+    color: white;
+    text-align: center;
+  }
+
+  .edit {
+    padding-top: 2rem;
+  }
+
+  .create {
+    padding-top: 2rem;
+  }
+
+  .submitButton {
+    padding-top: 2rem;
+  }
+
+  hr { margin: -2rem 1rem 4rem 0; }
+
+  .card {
+    width: 100rem;
+    color: black;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .card-link {
+    color: black;
+  }
+
+  .card-title {
+    font-weight: bold;
+  }
+
+  .card-description {
+    padding: 2rem;
+  }
+
+  th {
+    text-align: center;
+    color: white;
+  }
+
+  td {
+    text-align: center;
+    color: white;
+  }
+
+  .thumbnail {
+    width: 10rem;
+  }
+
+  @media only screen and (min-width: 991px) {
+    .hide-large {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 990px) {
+    .table {
+      display: none;
+    }
+
+    .card-body {
+      background-color: black;
+      color: white;
+    }
+
+    .card-text {
+      font-size: x-large;
+    }
+    
+    .navbar {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: auto;
+    }
+   
+    .action_btn {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+   
+  
+    .navbar .toggle_btn{
+      display: block;
+      padding-bottom: 3.5rem;
+      font-size: 3rem;
+    }
+    .dropdown_menu{
+      display: block;
+    }
+  }
+  
+  @media(max-width: 576px){
+    .dropdown_menu{
+      left: 2rem;
+      width: unset;
+    }
+  }

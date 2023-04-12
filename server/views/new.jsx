@@ -4,7 +4,7 @@ const Default = require('./layouts/default')
 function New () {
     return (
       <Default>
-        <h2>Add a new listing</h2>
+        <h3 className='create'>Create Listing</h3>
         <form action="/listings" method="POST">
           <label htmlFor='address'>address</label>
           <input
@@ -102,6 +102,12 @@ function New () {
             name='price_per_sq_ft'
             id='price_per_sq_ft'
           />
+           <label htmlFor='listing_description'>listing description</label>
+          <input
+            type='text'
+            name='listing_description'
+            id='listing_description'
+          />
           <label htmlFor='image_url'>image_url</label>
           <input
             type='text'
@@ -109,11 +115,8 @@ function New () {
             id='image_url'
           />
           <br />
-          <input type='submit'/>
+          <input type='submit' className='submitButton' value='submit'/>
         </form>
-        <div className="backButton">
-          <a href="/listings"><button>Go back to the index</button></a>
-        </div>
       </Default>
     )
 }

@@ -1,10 +1,10 @@
 const React = require('react')
 const Default = require('./layouts/default')
 
-function Edit ({ listing, index }) {
+function Edit ({ listing }) {
     return (
       <Default>
-        <h2>Edit a listing</h2>
+        <h3 className='edit'>Edit: {listing.address} {listing.apt_num}</h3>
         <form action={`/listings/${listing.id}?_method=PUT`} method="POST">
           <label htmlFor='address'>address</label>
           <input
@@ -116,6 +116,13 @@ function Edit ({ listing, index }) {
             id='price_per_sq_ft'
             defaultValue={listing.price_per_sq_ft}
           />
+          <label htmlFor='listing_description'>listing description</label>
+          <input
+            type='text'
+            name='listing_description'
+            id='listing_description'
+            defaultValue={listing.description}
+          />
           <label htmlFor='image_url'>image_url</label>
           <input
             type='text'
@@ -124,11 +131,8 @@ function Edit ({ listing, index }) {
             defaultValue={listing.image_url}
           />
           <br />
-          <input type='submit'/>
+          <input className='submitButton' type='submit' value='Update' />
         </form>
-        <div className='backButton'>
-          <a href='/listings'><button>Go back to the index</button></a>
-        </div>
       </Default>
     )
 }

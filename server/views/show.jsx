@@ -1,30 +1,34 @@
 const React = require('react')
 const Default = require('./layouts/default')
 
-function Show ({ listing, index }) {
-  console.log(listing.address)
+function Show ({ listing }) {
     return (
       <Default>
-        <h2>Show Page</h2>
-        <h3>{listing.address}</h3>
-        <h3>{listing.apt_num}</h3>
-        <h3>{listing.city}</h3>
-        <h3>{listing.state}</h3>
-        <h3>{listing.zip_code}</h3>
-        <h3>{listing.neighborhood}</h3>
-        <h3>{listing.borough}</h3>
-        <h3>{listing.status}</h3>
-        <h3>{listing.property_type}</h3>
-        <h3>{listing.bedrooms}</h3>
-        <h3>{listing.bathrooms}</h3>
-        <h3>{listing.price}</h3>
-        <h3>{listing.square_feet}</h3>
-        <h3>{listing.price_per_sq_ft}</h3>
-        <img src={listing.image_url} alt={listing.address} />
+        <div className="card">
+  <img className="card-img-top" src={listing.image_url} alt={listing.address} />
+  <div className="card-body">
+    <h5 className="card-title">{listing.address}, Apt {listing.apt_num}</h5>
+  </div>
+  <ul className="list-group list-group-flush">
+    <li className="list-group-item">Status: {listing.status}</li>
+    <li className="list-group-item">{listing.city}, {listing.state} {listing.zip_code}</li>
+    <li className="list-group-item">{listing.neighborhood} / {listing.borough}</li>
+    <li className="list-group-item">{listing.property_type}</li>
+    <li className="list-group-item">Bedrooms: {listing.bedrooms} Bathrooms: {listing.bathrooms}</li>
+    <li className="list-group-item">Price: {listing.price}</li>
+    <li className="list-group-item">Square Feet: {listing.square_feet} | Price Per SqFt: {listing.price_per_sq_ft}</li>
+  </ul>
+  <li className="card-text card-description">Description: {listing.description}</li>
+  <div className="card-body">
+  <hr />
+    <div className='btn-group'>
+    <a href={`/listings/${listing.id}/edit`}><button className='form-button'>Edit</button></a>
         <form action={`/listings/${listing.id}?_method=DELETE`} method="POST">
-          <input type='submit' value="DELETE"/>
+          <input className='input-btn' type='submit' value="DELETE"/>
         </form>
-        <a href={`/listings/${listing.id}/edit`}><button>Edit</button></a>
+        </div>
+  </div>
+</div>
       </Default>
     )
 }
