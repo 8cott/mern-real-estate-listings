@@ -102,11 +102,11 @@ function New () {
             name='price_per_sq_ft'
             id='price_per_sq_ft'
           />
-           <label htmlFor='listing_description'>listing description</label>
+           <label htmlFor='description'>listing description</label>
           <input
             type='text'
-            name='listing_description'
-            id='listing_description'
+            name='description'
+            id='description'
           />
           <label htmlFor='image_url'>image_url</label>
           <input

@@ -52,5 +52,6 @@ module.exports = [
         price_per_sq_ft: 0,
         description: "Rarely Available Flatiron Loft with No Monthly Maintenance! This is a true loft apartment with high ceilings, and approx 1,300sf of space, currently configured as a 3 bedroom. The huge eat-in-kitchen has a large skylight overhead, stainless appliances, lots of counter and cabinet space. In addition, this apartment comes with an in-unit washer/dryer and 2 private storage spaces downstairs, including bicycle and stroller parking. Located on West 18th and 5th, this amazing Flatiron Loft resides in one of the most highly desired locations in Manhattan. It doesn't get more convenient being this close to Union Square, the farmer's market, and easy access to virtually every subway line you could possibly ask for. Contact me now for a private showing. With no monthly maintenance payment, I expect this to go quickly.",
         image_url: 'https://www.compass.com/m/0/b386be52-9b19-4a04-9573-20205f0e2905/1500x1000.jpg'
+                
     }
 ]

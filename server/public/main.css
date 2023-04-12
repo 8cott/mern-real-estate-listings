@@ -117,13 +117,6 @@ header{
   justify-content: center;
 }
 
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-
 
 /* END ---------------------------------------------------------- */
  
@@ -250,6 +243,7 @@ header{
   td {
     text-align: center;
     color: white;
+    align-items: center;
   }
 
   .thumbnail {
@@ -266,7 +260,7 @@ header{
     .table {
       display: none;
     }
-
+    
     .card-body {
       background-color: black;
       color: white;
@@ -288,7 +282,6 @@ header{
       margin-bottom: 2rem;
     }
    
-  
     .navbar .toggle_btn{
       display: block;
       padding-bottom: 3.5rem;

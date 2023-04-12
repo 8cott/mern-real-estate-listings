@@ -7,7 +7,6 @@ function Index ({ listings }) {
            <div className="table-responsive">
         <table className="table">
         <thead>
-          
           <tr>
             <th>Image</th>
             <th>Address</th>
