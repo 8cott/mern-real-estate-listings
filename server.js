@@ -22,13 +22,13 @@ app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 
 // ROUTES
-// app.get('/', (req, res) => {
-//   res.send('Real Estate Listings App 🏡')
-// })
+app.get('/', (req, res) => {
+  res.send('Real Estate Listings App 🏡')
+})
 
 // LISTINGS
-const listingsController = require('./controllers/listings_controller.js');
-app.use('/', listingsController);
+const listingsController = require('./controllers/listings_controller.js')
+app.use('/listings', listingsController)
 
 // 404 Page
 app.use('*', (req, res) => {
