@@ -2,14 +2,14 @@
   "name": "re-app",
   "version": "1.0.0",
   "engines": {
-    "node": "18.12.1"
+    "node": "18.x"
   },
   "description": "A MERN stack app to post and view real estate listings with CRUD functionality.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "build": "cd client && npm run build",
-    "dev": "concurrently --kill-others \"npm run start\" \"cd client && npm start\""
+    "dev": "nodemon server.js"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
