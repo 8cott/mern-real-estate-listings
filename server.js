@@ -23,12 +23,12 @@ app.use(methodOverride('_method'))
 
 // ROUTES
 app.get('/', (req, res) => {
-  res.send('Real Estate Listings App 🏡')
-})
+  res.redirect('/listings');
+});
 
 // LISTINGS
-const listingsController = require('./controllers/listings_controller.js')
-app.use('/listings', listingsController)
+const listingsController = require('./controllers/listings_controller.js');
+app.use('/listings', listingsController);
 
 // 404 Page
 app.use('*', (req, res) => {
