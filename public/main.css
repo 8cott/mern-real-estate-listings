@@ -117,7 +117,6 @@ header{
   justify-content: center;
 }
 
-
 /* END ---------------------------------------------------------- */
  
   img {
@@ -217,11 +216,12 @@ header{
   hr { margin: -2rem 1rem 4rem 0; }
 
   .card {
-    width: 100rem;
+    max-width: 100%;
+    box-sizing: border-box;
     color: black;
     margin: 0 auto;
     text-align: center;
-  }
+}
 
   .card-link {
     color: black;
@@ -259,17 +259,8 @@ header{
   @media only screen and (max-width: 990px) {
     .table {
       display: none;
-    }
-    
-    .card-body {
-      background-color: black;
-      color: white;
-    }
+    }   
 
-    .card-text {
-      font-size: x-large;
-    }
-    
     .navbar {
       flex-direction: column;
       align-items: center;
@@ -298,3 +289,10 @@ header{
       width: unset;
     }
   }
+
+  @media only screen and (max-width: 1199px) {
+
+    .card-title {
+        font-size: 1.5rem;
+    }
+}
