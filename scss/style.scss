@@ -1,0 +1,334 @@
+@use 'colors';
+@use 'typography';
+@use 'breakpoints';
+
+@mixin hover-color {
+  &:hover {
+    border-color: colors.$aqua;
+    color: colors.$aqua;
+  }
+}
+
+@mixin bold-font {
+  font-weight: bold;
+}
+
+@mixin padding-lr {
+  padding: 0 2rem;
+
+}
+
+@function responsive-font-size($small-viewport-size, $large-viewport-size) {
+  @if type-of($small-viewport-size) != number {
+    @error "The small-viewport-size argument must be a number.";
+  }
+
+  @if type-of($large-viewport-size) != number {
+    @error "The large-viewport-size argument must be a number.";
+  }
+
+  @return calc(#{$small-viewport-size} + (#{$large-viewport-size} - #{$small-viewport-size}) * ((100vw - #{breakpoints.$breakpoint-sm}) / (#{breakpoints.$breakpoint-xl} - #{breakpoints.$breakpoint-sm})));
+}
+
+@function center-element($width, $height) {
+  @return map-get((
+    display: flex,
+    justify-content: center,
+    align-items: center,
+    width: $width,
+    height: $height
+  ), null);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: colors.$black;
+  color: colors.$white;
+  padding: 4rem 8rem;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: colors.$white;
+}
+
+header {
+  position: relative;
+  padding: 0 2rem 2rem 0;
+  background-color: colors.$black;
+  border-bottom: 1px solid colors.$aqua;
+  margin-bottom: 0.5rem;
+
+  .navbar {
+    display: flex;
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo a {
+      font-size: typography.$font-md;
+      @include bold-font;
+    }
+
+    .links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .toggle_btn {
+      color: colors.$white;
+      cursor: pointer;
+      display: none;
+      font-size: typography.$font-md;
+    }
+  }
+}
+
+.srlogo {
+  height: 8rem;
+  width: 100%;
+  padding-bottom: 4rem;
+}
+
+.action_btn {
+  @include hover-color;
+  font-size: typography.$font-md;
+  margin-bottom: 4rem;
+}
+
+.title {
+  color: colors.$aqua;
+  font-size: typography.$font-lg;
+  @include padding-lr;
+}
+
+.action_btn:hover {
+  border-color: colors.$aqua;
+  color: colors.$aqua;
+  transform: scale(0.95);
+}
+
+.dropdown_menu {
+  display: none;
+  right: 2rem;
+  position: absolute;
+  background: colors.$menu-bg;
+  backdrop-filter: blur(15px);
+  top: 60px;
+  height: 0px;
+  width: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  li {
+    padding: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &.ope {
+    height: 240px;
+  }
+
+  .action_btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+img {
+  width: 50%;
+  display: block;
+  margin: auto;
+}
+
+a:hover {
+  color: colors.$aqua;
+  border: none;
+}
+
+button {
+  border-color: colors.$white;
+  color: colors.$white;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+button:hover {
+  border-color: colors.$aqua;
+  color: colors.$aqua;
+}
+
+form {
+  text-align: center;
+}
+
+.form-button {
+  border-color: colors.$black;
+  color: colors.$black;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.form-button:hover {
+  color: colors.$aqua;
+  background-color: colors.$black;
+}
+
+input[type='submit'] {
+  border-color: colors.$white;
+  color: colors.$white;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+input[type='submit']:hover {
+  border-color: colors.$aqua;
+  color: colors.$aqua;
+}
+
+input[type='submit'].input-btn {
+  border-color: colors.$black;
+  color: colors.$black;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+input[type='submit'].input-btn:hover {
+  color: colors.$aqua;
+  background-color: colors.$black;
+}
+
+input[type='submit'].submitButton {
+  margin: 3rem;
+}
+
+.backButton {
+  margin: auto;
+}
+
+h3 {
+  color: colors.$white;
+  text-align: center;
+}
+
+.edit {
+  padding-top: 2rem;
+}
+
+.create {
+  padding-top: 2rem;
+}
+
+.submitButton {
+  padding-top: 2rem;
+}
+
+hr {
+  margin: -2rem 1rem 4rem 0;
+}
+
+.card {
+  max-width: 100%;
+  box-sizing: border-box;
+  color: colors.$black;
+  margin: 0 auto;
+  text-align: center;
+
+  .card-link {
+    color: colors.$black;
+  }
+
+  .card-title {
+    @include bold-font;
+    @include center-element(200px, 150px);
+    color: colors.$black;
+    font-size: responsive-font-size(1.5rem, 4.5rem); 
+  }   
+
+  .card-description {
+    padding: 2rem;
+  }
+}
+
+th, td {
+  text-align: center;
+  color: colors.$white;
+  align-items: center;
+}
+
+.thumbnail {
+  width: 10rem;
+}
+
+// ------ BREAKPOINTS / MEDIA QUERIES ------
+
+@media only screen and (min-width: breakpoints.$breakpoint-lg) {
+  .hide-large {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: breakpoints.$breakpoint-lg) {
+  .table {
+    display: none;
+  }
+
+  .card p.card-text a {
+    color: colors.$black;
+    @include bold-font;
+
+    &:hover {
+      color: colors.$aqua;
+    }
+  }
+
+  .navbar.stacked-nav {
+    align-items: center;
+    justify-content: center;
+    height: auto;
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .toggle_btn {
+      display: block;
+      padding-bottom: 3.5rem;
+      font-size: typography.$font-lg;
+    }
+
+    .dropdown_menu {
+      display: block;
+    }
+  }
+}
+
+@media (max-width: breakpoints.$breakpoint-sm) {
+  .dropdown_menu {
+    left: 2rem;
+    width: unset;
+  }
+}
+
+@media only screen and (max-width: breakpoints.$breakpoint-xl) {
+  .card-title {
+    font-size: typography.$font-md;
+  }
+}
