@@ -5,14 +5,26 @@ const listingSeedData = require('../models/seed.js')
 
 // INDEX
 listings.get('/', (req, res) => {
-    Listing.find()
-        .then(foundListings => {
-            res.render('Index', {
-                listings: foundListings,
-                title: 'Index Page'
-            })
-        })
+  Listing.find()
+      .then(foundListings => {
+          res.render('Index', {
+              listings: Array.from(foundListings),
+              title: 'Index Page'
+          })
+      })
 })
+
+// INDEX (JSON)
+listings.get('/api', (req, res) => {
+  Listing.find()
+    .then(foundListings => {
+      res.json(foundListings);
+    })
+    .catch(err => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
 
 // CREATE
 listings.post('/', (req, res) => {
