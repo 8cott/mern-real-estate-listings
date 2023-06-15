@@ -9,7 +9,6 @@
     "routes": [
       { "handle": "filesystem" },
       { "src": "/.*", "dest": "server.js" }
-    ],
-    "framework": "express"
+    ]
   }
   
