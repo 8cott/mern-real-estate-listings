@@ -6,25 +6,16 @@ const listingSeedData = require('../models/seed.js')
 // INDEX
 listings.get('/', (req, res) => {
   Listing.find()
-      .then(foundListings => {
-          res.render('Index', {
-              listings: Array.from(foundListings),
-              title: 'Index Page'
-          })
-      })
-})
-
-// INDEX (JSON)
-listings.get('/api', (req, res) => {
-  Listing.find()
     .then(foundListings => {
-      res.json(foundListings);
+      res.render('Index.jsx', {
+        listings: Array.from(foundListings),
+        title: 'Index Page'
+      });
     })
     .catch(err => {
-      res.status(500).json({ error: err.message });
+      res.send('404')
     });
 });
-
 
 // CREATE
 listings.post('/', (req, res) => {
@@ -37,8 +28,8 @@ listings.post('/', (req, res) => {
 
 // NEW
 listings.get('/new', (req, res) => {
-    res.render('new')
-})
+  res.render('new.jsx');
+});
 
 // UPDATE
 listings.put('/:id', (req, res) => {
@@ -51,13 +42,16 @@ listings.put('/:id', (req, res) => {
 
 // EDIT
 listings.get('/:id/edit', (req, res) => {
-  Listing.findById(req.params.id) 
-    .then(foundListing => { 
-      res.render('edit', {
+  Listing.findById(req.params.id)
+    .then(foundListing => {
+      res.render('edit.jsx', {
         listing: foundListing
-      })
+      });
     })
-})
+    .catch(err => {
+      res.status(404).send('Listing not found');
+    });
+});
 
 // DELETE
 listings.delete('/:id', (req, res) => {
@@ -70,15 +64,15 @@ listings.delete('/:id', (req, res) => {
 // SHOW
 listings.get('/:id', (req, res) => {
   Listing.findById(req.params.id)
-      .then(foundListing => {
-          res.render('show', {
-              listing: foundListing
-          })
-      })
-      .catch(err => {
-          res.send('404')
-      })
-})
+    .then(foundListing => {
+      res.render('show.jsx', {
+        listing: foundListing
+      });
+    })
+    .catch(err => {
+      res.status(404).send('Listing not found');
+    });
+});
 
 // SEED ROUTE 
 listings.get('/data/seed', (req, res) => {
