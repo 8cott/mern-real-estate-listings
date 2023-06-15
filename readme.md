@@ -4,7 +4,7 @@ The Real Estate Listings App allows users to view, add, update, edit, and delete
 The design of the app was developed using SCSS (Sass), aiming for a clean, simple, and responsive user interface.
 
 ## Live Demo
-Check out the live demo of the Real Estate Listings App [here](https://bit.ly/real-estate-listings-app).
+Check out the live demo of the Real Estate Listings App [here](https://dashboard.heroku.com/apps/real-estate-listings/resources){:target="_blank"}.
 
 ## Table of Contents
 - [Installation](#installation)
