@@ -7,7 +7,7 @@ const listingSeedData = require('../models/seed.js')
 listings.get('/', (req, res) => {
   Listing.find()
     .then(foundListings => {
-      res.render('Index.jsx', {
+      res.render('index.jsx', {
         listings: Array.from(foundListings),
         title: 'Index Page'
       });
