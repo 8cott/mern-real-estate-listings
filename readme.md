@@ -2,6 +2,7 @@
 I created this project during my software development bootcamp at NYU. The assignment was to create an app with full CRUD functionality using the MERN stack (MongoDB, Express, React, Node.js). 
 The Real Estate Listings App allows users to view, add, update, edit, and delete real estate listings.
 The design of the app was developed using SCSS (Sass), aiming for a clean, simple, and responsive user interface.
+The app was deployed on Heroku and the link is below in the Live Demo section. 
 
 ## Live Demo
 Check out the live demo of the Real Estate Listings App [here](https://real-estate-listings-3588c5997453.herokuapp.com/listings).
