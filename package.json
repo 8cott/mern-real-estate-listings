@@ -2,7 +2,7 @@
   "name": "re-app",
   "version": "1.0.0",
   "engines": {
-    "node": ">=14 <15"
+    "node": ">=14"
   },
   "description": "A MERN stack app to post and view real estate listings with CRUD functionality.",
   "main": "server.js",
