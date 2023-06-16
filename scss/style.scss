@@ -15,7 +15,6 @@
 
 @mixin padding-lr {
   padding: 0 2rem;
-
 }
 
 @function responsive-font-size($small-viewport-size, $large-viewport-size) {
@@ -27,17 +26,20 @@
     @error "The large-viewport-size argument must be a number.";
   }
 
-  @return calc(#{$small-viewport-size} + (#{$large-viewport-size} - #{$small-viewport-size}) * ((100vw - #{breakpoints.$breakpoint-sm}) / (#{breakpoints.$breakpoint-xl} - #{breakpoints.$breakpoint-sm})));
+  @return calc(
+    #{$small-viewport-size} + (
+        #{$large-viewport-size} - #{$small-viewport-size}
+      ) * ((100vw - #{breakpoints.$breakpoint-sm}) /
+          (#{breakpoints.$breakpoint-xl} - #{breakpoints.$breakpoint-sm}))
+  );
 }
 
-@function center-element($width, $height) {
-  @return map-get((
-    display: flex,
-    justify-content: center,
-    align-items: center,
-    width: $width,
-    height: $height
-  ), null);
+@mixin center-element($width, $height) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $width;
+  height: $height;
 }
 
 * {
@@ -48,7 +50,14 @@
 body {
   background-color: colors.$black;
   color: colors.$white;
-  padding: 4rem 8rem;
+  padding: 4rem;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 li {
@@ -107,10 +116,33 @@ header {
   margin-bottom: 4rem;
 }
 
-.title {
+.title-large {
+  display: none;
   color: colors.$aqua;
   font-size: typography.$font-lg;
   @include padding-lr;
+
+  @media only screen and (min-width: breakpoints.$breakpoint-sm) {
+    display: inline;
+  }
+}
+
+.title-small {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  span {
+    color: colors.$aqua;
+    font-size: typography.$font-lg;
+    @include padding-lr;
+  }
+
+  @media only screen and (min-width: breakpoints.$breakpoint-sm) {
+    display: none;
+  }
 }
 
 .action_btn:hover {
@@ -246,7 +278,8 @@ hr {
   max-width: 100%;
   box-sizing: border-box;
   color: colors.$black;
-  margin: 0 auto;
+  margin-left: 0;
+  margin-right: 0;
   text-align: center;
 
   .card-link {
@@ -255,17 +288,22 @@ hr {
 
   .card-title {
     @include bold-font;
-    @include center-element(200px, 150px);
     color: colors.$black;
-    font-size: responsive-font-size(1.5rem, 4.5rem); 
-  }   
+    font-size: responsive-font-size(1.5rem, 4.5rem);
+  }
 
   .card-description {
     padding: 2rem;
   }
 }
 
-th, td {
+.card-small {
+  margin-bottom: 1rem;
+}
+
+
+th,
+td {
   text-align: center;
   color: colors.$white;
   align-items: center;
@@ -277,19 +315,20 @@ th, td {
 
 // ------ BREAKPOINTS / MEDIA QUERIES ------
 
-@media only screen and (min-width: breakpoints.$breakpoint-lg) {
+@media only screen and (min-width: #{breakpoints.$breakpoint-lg}) {
   .hide-large {
     display: none;
   }
 }
 
-@media only screen and (max-width: breakpoints.$breakpoint-lg) {
+@media only screen and (max-width: #{breakpoints.$breakpoint-lg}) {
   .table {
     display: none;
   }
 
-  .card p.card-text a {
+  .card li.list-group-item a {
     color: colors.$black;
+    text-decoration: underline;
     @include bold-font;
 
     &:hover {
@@ -320,15 +359,16 @@ th, td {
   }
 }
 
-@media (max-width: breakpoints.$breakpoint-sm) {
+@media (max-width: #{breakpoints.$breakpoint-sm}) {
   .dropdown_menu {
     left: 2rem;
     width: unset;
   }
 }
 
-@media only screen and (max-width: breakpoints.$breakpoint-xl) {
+@media only screen and (max-width: #{breakpoints.$breakpoint-xl}) {
   .card-title {
     font-size: typography.$font-md;
   }
 }
+

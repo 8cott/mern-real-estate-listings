@@ -20,10 +20,8 @@
     "mongodb": "^5.5.0",
     "mongoose": "^6.1.4",
     "react": "^16.14.0",
-    "react-bootstrap": "^2.7.3",
     "react-dom": "^16.14.0",
-    "serve-favicon": "^2.5.0",
-    "xpress-bootstrap": "^2.0.7"
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
     "concurrently": "^6.3.0",

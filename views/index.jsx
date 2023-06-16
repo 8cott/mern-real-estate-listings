@@ -46,18 +46,21 @@ function Index ({ listings }) {
         </tbody>
       </table>
       <div className='hide-large'>
-      {listings.map((listing, index) => (
-              <div key={index} className="card card-i" style={{width: "100%"}}>
-              <a href={`/listings/${listing.id}`}><img className="card-img-top" src={listing.image_url} alt="listing_image" /></a>
-               <div className="card-body">
-                <p className="card-text"><a href={`/listings/${listing.id}`}>{listing.address}</a></p>
-                <p className="card-text">{listing.apt_num}</p>
-                <p className="card-text">{listing.neighborhood}</p>
-              </div>
-            </div>
-          ))}
-    
-      </div>
+  {listings.map((listing, index) => (
+    <div key={index} className="card card-small" style={{width: "100%"}}>
+      <a href={`/listings/${listing.id}`}>
+        <img className="card-img-top" src={listing.image_url} alt="listing_image" />
+      </a>
+      <ul className="list-group list-group-flush">
+        <li className="list-group-item">
+          <a href={`/listings/${listing.id}`}>{listing.address}</a>
+        </li>
+        <li className="list-group-item">Apt: {listing.apt_num}</li>
+        <li className="list-group-item">{listing.neighborhood}</li>
+      </ul>
+    </div>
+  ))}
+</div>
       </div>
        
 
