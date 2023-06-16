@@ -1,11 +1,14 @@
+
 # Real Estate Listings App
-I created this project during my software development bootcamp at NYU. The assignment was to create an app with full CRUD functionality using the MERN stack (MongoDB, Express, React, Node.js). 
-The Real Estate Listings App allows users to view, add, update, edit, and delete real estate listings.
-The design of the app was developed using SCSS (Sass), aiming for a clean, simple, and responsive user interface.
-The app was deployed on Heroku and the link is below in the Live Demo section. 
+
+The Real Estate Listings App is a server-side rendered web application developed during my software development bootcamp at NYU. The app was built using the MERN stack (MongoDB, Express, React, Node.js), with server-side rendering achieved through Express-React-Views. It allows users to view, add, update, edit, and delete real estate listings. The app features a clean, simple, and responsive user interface designed with SCSS (Sass).
+
+This README provides an overview of the app, installation instructions, usage details, configuration guidelines, license information, credits, and contact details.
 
 ## Live Demo
 Check out the live demo of the Real Estate Listings App [here](https://real-estate-listings-3588c5997453.herokuapp.com/listings).
+
+This app is deployed on [Heroku](https://www.heroku.com/), a cloud platform that enables easy deployment and hosting of web applications.
 
 ## Table of Contents
 - [Installation](#installation)
